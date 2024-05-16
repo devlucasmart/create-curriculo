@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="text" id="nome" placeholder="Seu Nome">
+            <p>
+                <input type="text" id="endereco" placeholder="Seu Endereço"> | 
+                <input type="text" id="telefone" placeholder="Seu Telefone"> | 
+                <input type="text" id="email" placeholder="Seu Email">
+            </p>
+        </div>
+        
+        <div class="section">
+            <h2>Resumo</h2>
+            <textarea id="resumo" placeholder="Escreva um breve resumo de suas qualificações e objetivos profissionais."></textarea>
+        </div>
+
+        <div class="section">
+            <h2>Experiência Profissional</h2>
+            <ul>
+                <li>
+                    <input type="text" placeholder="Nome da Empresa" class="empresa"> - 
+                    <input type="text" placeholder="Cargo" class="cargo"><br>
+                    <input type="text" placeholder="Data de Início - Data de Término" class="data"><br>
+                    <textarea placeholder="Descreva suas responsabilidades e realizações nesta posição." class="descricao"></textarea>
+                </li>
+                <li>
+                    <input type="text" placeholder="Nome da Empresa" class="empresa"> - 
+                    <input type="text" placeholder="Cargo" class="cargo"><br>
+                    <input type="text" placeholder="Data de Início - Data de Término" class="data"><br>
+                    <textarea placeholder="Descreva suas responsabilidades e realizações nesta posição." class="descricao"></textarea>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Educação</h2>
+            <ul>
+                <li>
+                    <input type="text" placeholder="Nome da Instituição" class="instituicao"> - 
+                    <input type="text" placeholder="Grau Obtido" class="grau"><br>
+                    <input type="text" placeholder="Data de Início - Data de Conclusão" class="data"><br>
+                    <textarea placeholder="Descreva o curso e principais realizações acadêmicas." class="descricao"></textarea>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Habilidades</h2>
+            <ul>
+                <li><input type="text" placeholder="Habilidade 1" class="habilidade"></li>
+                <li><input type="text" placeholder="Habilidade 2" class="habilidade"></li>
+                <li><input type="text" placeholder="Habilidade 3" class="habilidade"></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Projetos</h2>
+            <ul>
+                <li>
+                    <input type="text" placeholder="Nome do Projeto" class="projeto"><br>
+                    <textarea placeholder="Descreva brevemente o projeto e sua participação." class="descricao"></textarea>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Certificações</h2>
+            <ul>
+                <li><input type="text" placeholder="Certificação 1" class="certificacao"></li>
+                <li><input type="text" placeholder="Certificação 2" class="certificacao"></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Idiomas</h2>
+            <ul>
+                <li><input type="text" placeholder="Idioma 1 - Nível de Fluência" class="idioma"></li>
+                <li><input type="text" placeholder="Idioma 2 - Nível de Fluência" class="idioma"></li>
+            </ul>
+        </div>
+
+        <button onclick="generatePDF()">Exportar para PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
