@@ -12,6 +12,8 @@ function generatePDF() {
     doc.text(nome, 20, 20);
     doc.setFontSize(12);
     doc.text(`${endereco} | ${telefone} | ${email}`, 20, 30);
+    addLine(doc);
+    
 
     // Adiciona o Resumo
     doc.setFontSize(16);
@@ -19,6 +21,8 @@ function generatePDF() {
     doc.setFontSize(12);
     const resumo = document.getElementById('resumo').value;
     doc.text(resumo, 20, 50, { maxWidth: 170 });
+
+    addLine(doc);
 
     // Adiciona a Experiência Profissional
     let yOffset = 70;
@@ -38,6 +42,7 @@ function generatePDF() {
         doc.text(descricao, 20, yOffset, { maxWidth: 170 });
         yOffset += 20;
     });
+    addLine(doc);
 
     // Adiciona a Educação
     doc.setFontSize(16);
@@ -56,6 +61,7 @@ function generatePDF() {
         doc.text(descricao, 20, yOffset, { maxWidth: 170 });
         yOffset += 20;
     });
+    addLine(doc);
 
     // Adiciona as Habilidades
     doc.setFontSize(16);
@@ -105,4 +111,32 @@ function generatePDF() {
     });
 
     doc.save('curriculo.pdf');
+}
+
+function addLine(doc) {
+    doc.setDrawColor(0); // Define a cor da linha como preta
+    doc.setLineWidth(1); // Define a largura da linha como 1
+    doc.line(20, 35, 190, 35); // Desenha a linha 15 unidades abaixo do texto do cabeçalho
+}
+
+function adicionarSecao(idLista) {
+    var ul = document.getElementById(idLista);
+    var li = document.createElement("li");
+    li.innerHTML = `
+        <div class="form-group mb-3">
+            <input type="text" placeholder="Nome da Empresa" class="form-control empresa"> - 
+            <input type="text" placeholder="Cargo" class="form-control cargo"><br>
+            <input type="text" placeholder="Data de Início - Data de Término" class="form-control data"><br>
+            <textarea placeholder="Descreva suas responsabilidades e realizações nesta posição." class="form-control descricao"></textarea>
+        </div>
+    `;
+    ul.appendChild(li);
+}
+
+function removerSecao(idLista) {
+    var ul = document.getElementById(idLista);
+    var lis = ul.getElementsByTagName("li");
+    if (lis.length > 1) {
+        ul.removeChild(lis[lis.length - 1]);
+    }
 }
